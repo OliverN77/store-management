@@ -1,0 +1,33 @@
+services:
+  back:
+    build:
+      context: ./back
+    container_name: store_back
+    restart: unless-stopped
+    env_file:
+      - ./back/.env
+    environment:
+      # By default connect to the host SQL Server so we don't overwrite any local DB volumes.
+      # If you want to run SQL Server in Docker, use the separate docker-compose.db.yml file.
+      DB_SERVER: host.docker.internal
+      DB_PORT: "1433"
+      DB_USER: sa
+      DB_PASSWORD: "LMOOANM/*2011"
+      DB_NAME: storeManagement
+    ports:
+      - "3001:3001"
+    # If you run docker-compose with the DB compose file, the DB will be available as 'db'.
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3001/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+  front:
+    build:
+      context: ./front
+    container_name: store_front
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    # front will start independently; web UI will retry requests until backend is ready
