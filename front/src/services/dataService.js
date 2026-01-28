@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001/api',
+  baseURL: process.env.REACT_APP_API_URL || 'https://store-backend-erezhdh5hmbhggf3.brazilsouth-01.azurewebsites.net/api',
   timeout: 10000,
 });
 
