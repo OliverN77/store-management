@@ -1,0 +1,219 @@
+/* PaymentTerms.css - Reutilizando estilos similares */
+.payment-terms {
+  /* Changed class name from purchase-headers to payment-terms */
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.payment-terms-content {
+  /* Changed class name */
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+.payment-terms-header {
+  /* Changed class name */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.payment-terms-actions {
+  /* Changed class name */
+  display: flex;
+  gap: 1rem;
+}
+
+.payment-terms-table {
+  /* Changed class name */
+  background: var(--surface-color); /* Usa la variable de superficie */
+  border-radius: var(--radius);
+  overflow-x: auto;
+  box-shadow: var(--shadow); /* Usa la sombra neón */
+  border: 1px solid var(--border-color); /* Borde sutil neón */
+}
+
+.payment-terms-table table {
+  /* Changed class name */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payment-terms-table th /* Changed class name */,
+.payment-terms-table td {
+  /* Changed class name */
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color); /* Usa la variable de borde */
+}
+
+.payment-terms-table th {
+  /* Changed class name */
+  background-color: var(--background-color); /* Usa la variable de fondo */
+  font-weight: 600;
+  color: var(--text-primary); /* Usa la variable de texto principal */
+}
+
+.payment-terms-table tr:hover {
+  /* Changed class name */
+  background-color: rgba(0, 255, 255, 0.05); /* Fondo sutil neón al pasar el ratón */
+}
+
+.payment-term-form {
+  /* Changed class name */
+  width: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color); /* Usa la variable de borde */
+  padding-top: 1rem;
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-open {
+  background-color: rgba(0, 255, 255, 0.1); /* Fondo sutil neón cyan */
+  color: var(--neon-cyan); /* Texto neón cyan */
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+}
+
+.status-released {
+  background-color: rgba(0, 255, 65, 0.1); /* Fondo sutil neón green */
+  color: var(--neon-green); /* Texto neón green */
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  box-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
+}
+
+.status-pending-approval {
+  background-color: rgba(255, 255, 0, 0.1); /* Fondo sutil neón yellow */
+  color: var(--neon-yellow); /* Texto neón yellow */
+  border: 1px solid rgba(255, 255, 0, 0.3);
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.2);
+}
+
+.status-pending-prepayment {
+  background-color: rgba(255, 0, 128, 0.1); /* Fondo sutil neón pink */
+  color: var(--neon-pink); /* Texto neón pink */
+  border: 1px solid rgba(255, 0, 128, 0.3);
+  box-shadow: 0 0 5px rgba(255, 0, 128, 0.2);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  font-size: 1.1rem;
+  color: var(--neon-cyan); /* Color neón para el texto de carga */
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.error-banner {
+  background-color: rgba(255, 0, 128, 0.1); /* Fondo sutil neón pink */
+  color: var(--neon-pink); /* Texto neón pink */
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 0, 128, 0.3); /* Borde neón pink */
+  box-shadow: 0 0 10px rgba(255, 0, 128, 0.2); /* Sombra neón pink */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para el overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--surface-color); /* Usa la variable de superficie */
+  padding: 2rem;
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg); /* Usa la sombra neón */
+  border: 1px solid var(--border-color); /* Borde sutil neón */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color); /* Usa la variable de borde */
+  padding-bottom: 1rem;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--text-primary); /* Usa la variable de texto principal */
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary); /* Usa la variable de texto secundario */
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: rgba(0, 255, 255, 0.1); /* Fondo sutil neón al pasar el ratón */
+  color: var(--neon-cyan); /* Color neón al pasar el ratón */
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+
+  .payment-terms {
+    padding: 1rem;
+    max-width: 80dvw;
+  }
+
+  .modal h3 {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+}

@@ -1,0 +1,97 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.layout-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 2rem;
+  background-color: var(--background-color); /* Usa la nueva variable global */
+  transition: margin-left 0.3s ease;
+}
+
+/* Botón hamburguesa */
+.sidebar-toggle-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  transition: all 0.3s ease;
+}
+/* Líneas del hamburguesa */
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background: white;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 255, 1));
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-line:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+/* Animación cuando está abierto */
+.sidebar.open ~ .layout-content .sidebar-toggle-btn .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 3px);
+}
+
+.sidebar.open ~ .layout-content .sidebar-toggle-btn .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.sidebar.open ~ .layout-content .sidebar-toggle-btn .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(3px, -3px);
+}
+
+/* Overlay para móvil */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1050; /* Debajo de la sidebar */
+  display: none;
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  .layout-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding: 1rem;
+    overflow: hidden;
+  }
+  
+  .sidebar-toggle-btn {
+    display: flex;
+  }
+  
+  .sidebar-overlay {
+    display: block;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 100%;
+  width: 100%;
+}

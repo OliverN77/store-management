@@ -1,0 +1,211 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: var(--surface-color);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1100;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1101; /* Asegurar que esté encima */
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+/* Botón cerrar (X) - MEJORADO */
+.sidebar-close-btn {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--danger-color);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1102;
+  font-weight: bold;
+}
+
+.sidebar-close-btn:hover {
+  background: rgba(244, 67, 54, 0.2);
+  color: var(--danger-color);
+  transform: scale(1.1);
+}
+
+.sidebar-close-btn:active {
+  transform: scale(0.95);
+  background: rgba(244, 67, 54, 0.3);
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-section-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1.5rem 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  margin: 0 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.9375rem;
+  position: relative;
+}
+
+.sidebar-link:hover {
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.sidebar-link.active {
+  background-color: var(--primary-accent);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-link.active::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background: var(--primary-accent);
+  border-radius: 0 2px 2px 0;
+}
+
+.sidebar-icon {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+
+.sidebar-label {
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Responsive: móvil */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  /* Mostrar botón de cerrar en móvil */
+  .sidebar-close-btn {
+    display: flex !important;
+  }
+  
+  .sidebar-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .sidebar-title {
+    font-size: 1.25rem;
+  }
+  
+  .sidebar-link {
+    padding: 1rem 1.5rem;
+    margin: 0 0.5rem;
+  }
+  
+  .sidebar-link:hover {
+    transform: none;
+    background-color: var(--surface-hover);
+  }
+  
+  .sidebar-link:active {
+    background-color: var(--primary-accent);
+    color: white;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+  }
+  
+  .sidebar-title {
+    font-size: 1.25rem;
+  }
+  
+  .sidebar-link {
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+/* Focus states para accesibilidad */
+.sidebar-link:focus,
+.sidebar-close-btn:focus {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 2px;
+}
+
+.sidebar-link {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-icon {
+  transition: transform 0.2s ease;
+}
+
+.sidebar-link:hover .sidebar-icon {
+  transform: scale(1.1);
+}

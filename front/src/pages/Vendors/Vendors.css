@@ -1,0 +1,229 @@
+/* Reutilizamos los estilos de Customers */
+.vendors {
+  padding: 0;
+}
+
+.loading,
+.error-banner {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.125rem;
+}
+
+.error-banner {
+  background-color: rgba(255, 0, 128, 0.1);
+  /* Fondo sutil neón pink */
+  color: var(--neon-pink);
+  /* Texto neón pink */
+  border: 1px solid rgba(255, 0, 128, 0.3);
+  /* Borde neón pink */
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(255, 0, 128, 0.2);
+  /* Sombra neón pink */
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Fondo más oscuro para el overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background-color: var(--surface-color);
+  /* Usa la variable de superficie */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  /* Usa la sombra neón */
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  /* Borde sutil neón */
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  /* Usa la variable de borde */
+}
+
+.modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  /* Usa la variable de texto principal */
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  /* Usa la variable de texto secundario */
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.close-button:hover {
+  color: var(--neon-cyan);
+  /* Color neón al pasar el ratón */
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+/* Form Styles */
+.vendor-form {
+  padding: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+  /* Usa la variable de borde */
+  padding-top: 1.5rem;
+}
+
+/* Table Styles */
+.vendors-table-container {
+  background-color: var(--surface-color);
+  /* Usa la variable de superficie */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  /* Usa la sombra neón */
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  /* Borde sutil neón */
+}
+
+.vendors-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vendors-table th,
+.vendors-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  /* Usa la variable de borde */
+}
+
+.vendors-table th {
+  background-color: var(--background-color);
+  /* Usa la variable de fondo */
+  font-weight: 600;
+  color: var(--text-primary);
+  /* Usa la variable de texto principal */
+}
+
+.vendors-table tbody tr:hover {
+  background-color: rgba(0, 255, 255, 0.05);
+  /* Fondo sutil neón al pasar el ratón */
+}
+
+.vendor-code {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--neon-cyan);
+  /* Usa el color neón cyan */
+  text-shadow: 0 0 3px rgba(0, 255, 255, 0.5);
+}
+
+.vendor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.vendor-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  /* Usa la variable de texto principal */
+}
+
+.vendor-contact {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  /* Usa la variable de texto secundario */
+}
+
+.status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status.active {
+  background-color: rgba(0, 255, 65, 0.1);
+  /* Fondo sutil neón green */
+  color: var(--neon-green);
+  /* Texto neón green */
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  box-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
+}
+
+.page-actions{
+  margin: 20px 0;
+}
+
+.status.blocked {
+  background-color: rgba(255, 0, 128, 0.1);
+  /* Fondo sutil neón pink */
+  color: var(--neon-pink);
+  /* Texto neón pink */
+  border: 1px solid rgba(255, 0, 128, 0.3);
+  box-shadow: 0 0 5px rgba(255, 0, 128, 0.2);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+  /* Usa la variable de texto secundario */
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+  .vendors {
+    padding: 0;
+    margin: 0;
+  }
+
+  .vendors td {
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+}
