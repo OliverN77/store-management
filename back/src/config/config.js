@@ -10,8 +10,13 @@ const dbConfig = {
   database: process.env.DB_NAME,
   options: {
     encrypt: true,
-    trustServerCertificate: true,
+    trustServerCertificate: false,
   },
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000
+  }
 };
 
 const poolPromise = new sql.ConnectionPool(dbConfig)
